@@ -6,136 +6,111 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.net.Socket
 
 class MainActivity : AppCompatActivity() {
-    fun sendTCP(IP: String, port: Int, data: String){
+    val viewModel = TvViewModel()
+    fun sendTCP(IP: String, port: Int, data: String) {
         val client = Socket(IP, port)
         client.outputStream.write(data.toByteArray())
         client.close()
 
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val IP_ADDR = "10.0.0.55"
-        val PORT = 5005
 
-        BtnPower.setOnClickListener(){
-            println(" button power")
-            sendTCP(IP_ADDR, PORT, "ir tv power")
-
+        BtnPower.setOnClickListener() {
+            viewModel.send(TV_POWER)
         }
 
-        BtnYes.setOnClickListener(){
-            sendTCP(IP_ADDR, PORT, "ir tv yes")
-            println(" button yes")
+        BtnYes.setOnClickListener() {
+            viewModel.send(TV_YES)
         }
 
-        Btn0.setOnClickListener(){
-            sendTCP(IP_ADDR, PORT, "ir tv 0")
-            println(" button 0")
+        Btn0.setOnClickListener() {
+            viewModel.send(TV_CHANNEL_NUM_0)
         }
 
-        Btn1.setOnClickListener(){
-            println(" button 1")
-            sendTCP(IP_ADDR, PORT, "ir tv 1")
+        Btn1.setOnClickListener() {
+            viewModel.send(TV_CHANNEL_NUM_1)
         }
 
-        Btn2.setOnClickListener(){
-            println(" button 2")
-            sendTCP(IP_ADDR, PORT, "ir tv 2")
+        Btn2.setOnClickListener() {
+            viewModel.send(TV_CHANNEL_NUM_2)
         }
 
-        Btn3.setOnClickListener(){
-            println(" button 3")
-            sendTCP(IP_ADDR, PORT, "ir tv 3")
+        Btn3.setOnClickListener() {
+            viewModel.send(TV_CHANNEL_NUM_3)
         }
 
-        Btn4.setOnClickListener(){
-            println(" button 4")
-            sendTCP(IP_ADDR, PORT, "ir tv 4")
+        Btn4.setOnClickListener() {
+            viewModel.send(TV_CHANNEL_NUM_4)
         }
 
-        Btn5.setOnClickListener(){
-            println(" button 5")
-            sendTCP(IP_ADDR, PORT, "ir tv5 ")
+        Btn5.setOnClickListener() {
+            viewModel.send(TV_CHANNEL_NUM_5)
         }
 
-        Btn6.setOnClickListener(){
-            println(" button 6")
-            sendTCP(IP_ADDR, PORT, "ir tv 6")
+        Btn6.setOnClickListener() {
+            viewModel.send(TV_CHANNEL_NUM_6)
         }
 
-        Btn7.setOnClickListener(){
-            println(" button 7")
-            sendTCP(IP_ADDR, PORT, "ir tv 7")
+        Btn7.setOnClickListener() {
+            viewModel.send(TV_CHANNEL_NUM_7)
         }
 
-        Btn8.setOnClickListener(){
-            println(" button 8")
-            sendTCP(IP_ADDR, PORT, "ir tv 8")
+        Btn8.setOnClickListener() {
+            viewModel.send(TV_CHANNEL_NUM_8)
         }
 
-        Btn9.setOnClickListener(){
-            println(" button 9")
-            sendTCP(IP_ADDR, PORT, "ir tv 9")
+        Btn9.setOnClickListener() {
+            viewModel.send(TV_CHANNEL_NUM_9)
         }
 
-        BtnCHPlus.setOnClickListener(){
-            println(" button CH+")
-            sendTCP(IP_ADDR, PORT, "ir tv ch+")
+        BtnCHPlus.setOnClickListener() {
+            viewModel.send(TV_CHANNEL_UP)
         }
 
-        BtnCHMinus.setOnClickListener(){
-            println(" button CH-")
-            sendTCP(IP_ADDR, PORT, "ir tv ch-")
+        BtnCHMinus.setOnClickListener() {
+            viewModel.send(TV_CHANNEL_DOWN)
         }
 
-        BtnVolPlus.setOnClickListener(){
-            println(" button vol+")
-            sendTCP(IP_ADDR, PORT, "ir tv vol+")
+        BtnVolPlus.setOnClickListener() {
+            viewModel.send(TV_VOLUME_UP)
         }
 
-        BtnVolMinus.setOnClickListener(){
-            println(" button vol-")
-            sendTCP(IP_ADDR, PORT, "ir tv vol-")
+        BtnVolMinus.setOnClickListener() {
+            viewModel.send(TV_VOLUME_DOWN)
         }
 
-        BtnUp.setOnClickListener(){
-            println(" button up")
-            sendTCP(IP_ADDR, PORT, "ir tv up")
+        BtnUp.setOnClickListener() {
+            viewModel.send(TV_UP)
         }
 
-        BtnDown.setOnClickListener(){
-            println(" button down")
-            sendTCP(IP_ADDR, PORT, "ir tv down")
+        BtnDown.setOnClickListener() {
+            viewModel.send(TV_DOWN)
         }
 
-        BtnRight.setOnClickListener(){
-            println(" button right")
-            sendTCP(IP_ADDR, PORT, "ir tv right")
+        BtnRight.setOnClickListener() {
+            viewModel.send(TV_RIGHT)
         }
 
-        BtnLeft.setOnClickListener(){
-            println(" button left")
-            sendTCP(IP_ADDR, PORT, "ir tv left")
+        BtnLeft.setOnClickListener() {
+            viewModel.send(TV_LEFT)
         }
 
-        BtnQuestionMark.setOnClickListener(){
-            println(" button ?")
-            sendTCP(IP_ADDR, PORT, "ir tv ?")
+        BtnQuestionMark.setOnClickListener() {
+            viewModel.send(TV_QUESTION_MARK)
         }
 
-        BtnPlus.setOnClickListener(){
-            println(" button +")
-            sendTCP(IP_ADDR, PORT, "ir tv +")
+        BtnPlus.setOnClickListener() {
+            viewModel.send(TV_PLUS)
         }
 
-        BtnRevert.setOnClickListener(){
-            println(" button revert")
-            sendTCP(IP_ADDR, PORT, "ir tv return")
+        BtnRevert.setOnClickListener() {
+            viewModel.send(TV_RETURN)
         }
     }
-
-
-
 }
+
+
